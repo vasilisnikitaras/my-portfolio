@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Access</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: system-ui;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box {
+      background: rgba(255,255,255,0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+      animation: fadeIn 0.6s ease forwards;
+      opacity: 0;
+    }
+    input {
+      padding: 10px;
+      width: 200px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      box-shadow: 0 0 18px rgba(56,189,248,0.7);
+    }
+
+    .back-portfolio {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 10px 16px;
+      background: rgba(56,189,248,0.9);
+      color: #0f172a;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+      z-index: 9999;
+    }
+
+    .back-portfolio:hover {
+      background: #7dd3fc;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .back-portfolio {
+        display: none;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .shake {
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+<button class="back-portfolio" onclick="window.location.href='/'">
+  ← Back to Portfolio
+</button>
+
+<div class="box" id="box">
+  <h2>Enter Password</h2>
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="check()">Login</button>
+</div>
+
+<script>
+  function check() {
+    const p = document.getElementById("pass").value;
+    const box = document.getElementById("box");
+
+    if (p === "VNF-ACCESS-2026") {
+      window.location.href = "/";
+    } else {
+      box.classList.add("shake");
+      setTimeout(() => box.classList.remove("shake"), 400);
+      alert("Wrong password");
+    }
+  }
+</script>
+
+</body>
+</html>
