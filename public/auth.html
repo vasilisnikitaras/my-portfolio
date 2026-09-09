@@ -24,13 +24,6 @@
       animation: fadeIn 0.6s ease forwards;
       opacity: 0;
     }
-    input {
-      padding: 10px;
-      width: 200px;
-      border-radius: 6px;
-      border: none;
-      margin-top: 10px;
-    }
     button {
       margin-top: 15px;
       padding: 10px 20px;
@@ -67,56 +60,22 @@
       transform: translateY(-2px);
     }
 
-    @media (max-width: 600px) {
-      .back-portfolio {
-        display: none;
-      }
-    }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    .shake {
-      animation: shake 0.4s;
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
-      100% { transform: translateX(0); }
     }
   </style>
 </head>
 <body>
 
-<button class="back-portfolio" onclick="window.location.href='/'">
+<button class="back-portfolio" onclick="window.location.href='/index.html'">
   ← Back to Portfolio
 </button>
 
-<div class="box" id="box">
-  <h2>Enter Password</h2>
-  <input id="pass" type="password" placeholder="Password">
-  <button onclick="check()">Login</button>
+<div class="box">
+  <h2>Access Granted</h2>
+  <button onclick="window.location.href='/index.html'">Enter</button>
 </div>
-
-<script>
-  function check() {
-    const p = document.getElementById("pass").value;
-    const box = document.getElementById("box");
-
-    if (p === "VNF-ACCESS-2026") {
-      window.location.href = "/";
-    } else {
-      box.classList.add("shake");
-      setTimeout(() => box.classList.remove("shake"), 400);
-      alert("Wrong password");
-    }
-  }
-</script>
 
 </body>
 </html>
